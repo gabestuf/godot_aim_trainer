@@ -17,11 +17,14 @@ func _ready() -> void:
 
 var isForward := true
 
+@onready var pathFollow = $Path2D/PathFollow2D
+
 func _physics_process(delta: float) -> void:
-	if (isForward): $Path2D/PathFollow2D.progress_ratio += move_speed
-	else: $Path2D/PathFollow2D.progress_ratio -= move_speed
+	
+	if (isForward): pathFollow.progress_ratio += move_speed
+	else: pathFollow.progress_ratio -= move_speed
 	
 	# have it go backwards
-	if ($Path2D/PathFollow2D.progress_ratio >= 1 - move_speed or $Path2D/PathFollow2D.progress_ratio <= move_speed): 
+	if (pathFollow.progress_ratio >= 1 - move_speed or pathFollow.progress_ratio <= move_speed): 
 		isForward = !isForward
 	

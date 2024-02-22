@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://brpiiwxavf1ne"]
+
+[ext_resource type="Script" path="res://scenes/eye_tracking/linear_left_right.gd" id="1_mqiwl"]
+[ext_resource type="PackedScene" uid="uid://di87naoku3ty7" path="res://sprites/Circle.tscn" id="2_3pqfc"]
+
+[sub_resource type="Curve2D" id="Curve2D_hx63p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 436, 435, 0, 0, 0, 0, 1439, 432)
+}
+point_count = 2
+
+[node name="Linear Left Right" type="Node2D"]
+script = ExtResource("1_mqiwl")
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_hx63p")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(436, 435)
+rotation = 1.5708
+rotates = false
+
+[node name="Circle" parent="Path2D/PathFollow2D" instance=ExtResource("2_3pqfc")]

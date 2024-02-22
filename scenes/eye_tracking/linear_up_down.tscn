@@ -4,16 +4,11 @@
 [ext_resource type="Script" path="res://scenes/eye_tracking/linear_up_down.gd" id="1_ifh4q"]
 
 [sub_resource type="Curve2D" id="Curve2D_hx63p"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 174, 73, 0, 0, 0, 0, 174, 419, 0, 0, 0, 0, 352, 77, 0, 0, 0, 0, 354, 439, 0, 0, 0, 0, 507, 79, 0, 0, 0, 0, 509, 433, 0, 0, 0, 0, 649, 77, 0, 0, 0, 0, 650, 435, 0, 0, 0, 0, 777, 75, 0, 0, 0, 0, 780, 451, 0, 0, 0, 0, 910, 80, 0, 0, 0, 0, 911, 455)
-}
-point_count = 12
 
 [node name="Linear Up Down" type="Node2D"]
 script = ExtResource("1_ifh4q")
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(174, 73, 174, 420, 354, 73, 354, 439, 507, 75, 507, 437, 650, 75, 650, 439, 778, 73, 778, 451, 910, 79, 909, 458)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
@@ -21,10 +16,7 @@ default_color = Color(0, 0, 0, 1)
 curve = SubResource("Curve2D_hx63p")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(174, 73)
 rotation = 1.5708
 rotates = false
-cubic_interp = false
 
 [node name="Circle" parent="Path2D/PathFollow2D" instance=ExtResource("1_77t1b")]
-rotation = -1.5708
